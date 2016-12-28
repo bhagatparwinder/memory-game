@@ -1,6 +1,6 @@
 /*
     Description: Contains code for memory game
-    Version: 0.1
+    Version: 0.2
     Author: Parwinder Bhagat
  */
 
@@ -21,7 +21,8 @@ var cardsArray = ['JS', 'PHP', 'Mongo', 'Ember', 'Grunt', 'Gulp', 'HTML', 'CSS',
     cardId = [],
     cardValue = [],
     totalClicks = 0,
-    app = new Object();
+    app = new Object(),
+    gameBoard = document.querySelector('#game-board');
 
 //Duplicating and concatinating the array declared
 cardsArray = cardsArray.concat(cardsArray);
@@ -32,11 +33,11 @@ app.init = function() {
     for (let i = 0; i < cardsArray.length; i++) {
         domElement += '<div class="card" onclick="app.flipCard(this, ' + i + ')" id="card-' + i + '"></div>'
     }
-    document.querySelector('#game-board').innerHTML = domElement;
+    gameBoard.innerHTML = domElement;
 }
 
 app.completeGame = function() {
-    document.querySelector('#game-board').innerHTML = 'You have finished the game. <a onclick="app.init()">Click here to start a new game</a><p>You used '+ totalClicks +' clicks (lower is better!)';
+    gameBoard.innerHTML = '<p>You have finished the game. <a onclick="app.init()">Click here to start a new game</a></p><p>You used '+ totalClicks +' clicks (lower is better!)';
     cardsFlipped = 0;
     cardId = [];
     cardValue = [];
@@ -68,7 +69,7 @@ app.flipCard = function(element, index) {
     } else {
         for (let i = 0; i < 2; i++) {
             var resetElement = document.querySelector('#card-' + cardId[i]);
-            resetElement.style.background = '#373737';
+            resetElement.style.background = '#FF383F';
             resetElement.innerHTML = '';
         }
         cardId = [];

@@ -1,15 +1,30 @@
+body {
+    background-color: #373737;
+}
+
+p {
+    color: #FFF;
+}
+
+a {
+    color: #FF383F;
+    line-height: 430px;
+}
+
 #game-board {
-    border: 1px solid #4ABDAC;
     height: 430px;
+    left: 50%;
     margin-top: 40px;
     margin: 0 auto;
+    position: fixed;
     text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: 650px;
 }
 
 #game-board .card {
-    background: #373737;
-    border: 1px solid #DFDCE3;
+    background: #FF383F;
     display: inline-block;
     font-family: Helvetica, sans-serif, Arial;
     font-weight: bold;
@@ -23,9 +38,4 @@
 #game-board .card,
 a {
     cursor: pointer;
-}
-
-a {
-    color: #C03;
-    line-height: 430px;
 }
