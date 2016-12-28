@@ -1,6 +1,6 @@
 /*
     Description: Contains code for memory game
-    Version: 0.0.1
+    Version: 0.1
     Author: Parwinder Bhagat
  */
 
@@ -20,6 +20,7 @@ var cardsArray = ['JS', 'PHP', 'Mongo', 'Ember', 'Grunt', 'Gulp', 'HTML', 'CSS',
     cardsFlipped = 0,
     cardId = [],
     cardValue = [],
+    totalClicks = 0,
     app = new Object();
 
 //Duplicating and concatinating the array declared
@@ -35,26 +36,30 @@ app.init = function() {
 }
 
 app.completeGame = function() {
-     document.querySelector('#game-board').innerHTML = 'You have finished the game. <a href="app.init()">Click here to start a new game</a>';
+    document.querySelector('#game-board').innerHTML = 'You have finished the game. <a onclick="app.init()">Click here to start a new game</a><p>You used '+ totalClicks +' clicks (lower is better!)';
+    cardsFlipped = 0;
+    cardId = [];
+    cardValue = [];
 }
 
 app.takeAction = function(index, value) {
     cardId.push(index);
     cardValue.push(value);
-    if(cardValue.length === 2){
-        if (cardValue[0] === cardValue[1]){
+    if (cardValue.length === 2) {
+        if (cardValue[0] === cardValue[1]) {
             cardsFlipped += 2;
             cardId = [];
             cardValue = [];
         }
     }
-    if(cardsFlipped === cardsArray.length){
+    if (cardsFlipped === cardsArray.length) {
         app.completeGame();
     }
 }
 
 //Handles flipping of card on the board
 app.flipCard = function(element, index) {
+    totalClicks += 1;
     var currentValue = cardsArray[index];
     if (element.innerHTML === '' && cardValue.length < 2) {
         element.style.background = '#FFF';
