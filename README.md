@@ -1,5 +1,5 @@
 # Memory Game
-### A simple memory game where you match to identical cards
+### A simple memory game where you match two identical cards
 ###### This repo contains the source code for memory game. Feel free to copy, comment or fork.
 Get in touch: **contact@bhagat.me**
 
