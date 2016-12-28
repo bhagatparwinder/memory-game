@@ -1,5 +1,5 @@
 #game-board {
-    border: 1px solid #CCC;
+    border: 1px solid #4ABDAC;
     height: 445px;
     margin-top: 40px;
     margin: 0 auto;
@@ -8,10 +8,11 @@
 }
 
 #game-board .card {
-    border: 1px solid red;
+    border: 1px solid #DFDCE3;
     cursor: pointer;
     display: inline-block;
     height: 85px;
     margin: 10px;
     width: 85px;
+    background: #373737;
 }

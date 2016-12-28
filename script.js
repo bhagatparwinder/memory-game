@@ -1,3 +1,10 @@
+/*
+    Description: Contains code for memory game
+    Version: 0.0.1
+    Author: Parwinder Bhagat
+ */
+
+//Added shuffle method to Array
 Array.prototype.shuffle = function() {
     for (var i = this.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -8,20 +15,27 @@ Array.prototype.shuffle = function() {
     return this;
 }
 
+//Declaring initial array
 var cardsArray = ['JS', 'PHP', 'Mongo', 'Ember', 'Grunt', 'Gulp', 'HTML', 'CSS', 'Basic', 'C++', 'VIM', 'Unix'],
     cardsFlipped = 0,
     cardId = [],
     app = new Object();
 
+//Duplicating and concatinating the array declared
 cardsArray = cardsArray.concat(cardsArray);
 
 app.init = function() {
     var domElement = ''
     cardsArray.shuffle();
     for (let i = 0; i < cardsArray.length; i++) {
-        domElement += '<div class="card" id="' + i + '"></div>'
+        domElement += '<div class="card" onclick="app.flipCard(this)" id="' + i + '"></div>'
     }
     document.querySelector('#game-board').innerHTML = domElement;
+}
+
+//Handles flipping of card on the board
+app.flipCard = function(element){
+    console.log(element);
 }
 
 app.init();
