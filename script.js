@@ -34,14 +34,32 @@ app.init = function() {
     document.querySelector('#game-board').innerHTML = domElement;
 }
 
+app.completeGame = function() {
+     document.querySelector('#game-board').innerHTML = 'You have finished the game. <a href="app.init()">Click here to start a new game</a>';
+}
+
+app.takeAction = function(index, value) {
+    cardId.push(index);
+    cardValue.push(value);
+    if(cardValue.length === 2){
+        if (cardValue[0] === cardValue[1]){
+            cardsFlipped += 2;
+            cardId = [];
+            cardValue = [];
+        }
+    }
+    if(cardsFlipped === cardsArray.length){
+        app.completeGame();
+    }
+}
+
 //Handles flipping of card on the board
 app.flipCard = function(element, index) {
     var currentValue = cardsArray[index];
     if (element.innerHTML === '' && cardValue.length < 2) {
         element.style.background = '#FFF';
         element.innerHTML = currentValue;
-        cardId.push(index);
-        cardValue.push(currentValue);
+        app.takeAction(index, currentValue);
     } else {
         for (let i = 0; i < 2; i++) {
             var resetElement = document.querySelector('#card-' + cardId[i]);
