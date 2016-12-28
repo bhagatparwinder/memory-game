@@ -28,14 +28,15 @@ app.init = function() {
     var domElement = ''
     cardsArray.shuffle();
     for (let i = 0; i < cardsArray.length; i++) {
-        domElement += '<div class="card" onclick="app.flipCard(this)" id="' + i + '"></div>'
+        domElement += '<div class="card" onclick="app.flipCard(this, ' + i + ')" id="' + i + '"></div>'
     }
     document.querySelector('#game-board').innerHTML = domElement;
 }
 
 //Handles flipping of card on the board
-app.flipCard = function(element){
-    console.log(element);
+app.flipCard = function(element, index) {
+    element.style.background = '#FFF';
+    element.innerHTML = cardsArray[index];
 }
 
 app.init();

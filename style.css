@@ -8,11 +8,15 @@
 }
 
 #game-board .card {
+    background: #373737;
     border: 1px solid #DFDCE3;
     cursor: pointer;
     display: inline-block;
+    font-family: Helvetica, sans-serif, Arial;
+    font-weight: bold;
     height: 85px;
+    line-height: 85px;
     margin: 10px;
+    vertical-align: top;
     width: 85px;
-    background: #373737;
 }
