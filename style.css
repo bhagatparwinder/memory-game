@@ -1,7 +1,17 @@
-#game-board{
-    width:600px;
-    height:400px;
-    margin: 0 auto;
+#game-board {
     border: 1px solid #CCC;
+    height: 445px;
     margin-top: 40px;
+    margin: 0 auto;
+    text-align: center;
+    width: 650px;
+}
+
+#game-board .card {
+    border: 1px solid red;
+    cursor: pointer;
+    display: inline-block;
+    height: 85px;
+    margin: 10px;
+    width: 85px;
 }

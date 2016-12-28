@@ -1,4 +1,4 @@
-Array.prototype.shuffle = function(){
+Array.prototype.shuffle = function() {
     for (var i = this.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
         var temp = this[i];
@@ -8,6 +8,20 @@ Array.prototype.shuffle = function(){
     return this;
 }
 
-var cardArray = ['JS', 'PHP', 'Mongo', 'Ember', 'Grunt', 'Gulp', 'HTML', 'CSS', 'Basic', 'C++', 'VIM', 'Unix']
-    app = {};
-    cardArray = cardArray.concat(cardArray);
+var cardsArray = ['JS', 'PHP', 'Mongo', 'Ember', 'Grunt', 'Gulp', 'HTML', 'CSS', 'Basic', 'C++', 'VIM', 'Unix'],
+    cardsFlipped = 0,
+    cardId = [],
+    app = new Object();
+
+cardsArray = cardsArray.concat(cardsArray);
+
+app.init = function() {
+    var domElement = ''
+    cardsArray.shuffle();
+    for (let i = 0; i < cardsArray.length; i++) {
+        domElement += '<div class="card" id="' + i + '"></div>'
+    }
+    document.querySelector('#game-board').innerHTML = domElement;
+}
+
+app.init();
